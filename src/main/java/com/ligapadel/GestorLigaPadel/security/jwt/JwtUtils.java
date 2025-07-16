@@ -1,6 +1,7 @@
 package com.ligapadel.GestorLigaPadel.security.jwt;
 
-import com.padelmons.PadelMons.security.services.UserDetailsImpl;
+
+import com.ligapadel.GestorLigaPadel.security.services.UserDetailsImpl;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;

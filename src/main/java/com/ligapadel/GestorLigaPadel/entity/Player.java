@@ -3,25 +3,25 @@ package com.ligapadel.GestorLigaPadel.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "players")
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    // Referencia al usuario
-    @OneToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
-
     private String name;
     private String surname;
     private int age;
     private String gender;
     private String imgUrl;
+    private LocalDateTime createdAt;
 
-    // Datos de contacto específicos del jugador (pueden ser diferentes a los del User)
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     @Embedded
     private DataContact dataContact;
 

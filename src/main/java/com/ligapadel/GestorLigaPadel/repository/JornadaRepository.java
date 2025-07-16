@@ -1,6 +1,7 @@
 package com.ligapadel.GestorLigaPadel.repository;
 
-import com.padelmons.PadelMons.entities.Jornada;
+
+import com.ligapadel.GestorLigaPadel.entity.Jornada;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

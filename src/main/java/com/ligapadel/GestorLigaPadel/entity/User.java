@@ -3,6 +3,7 @@ package com.ligapadel.GestorLigaPadel.entity;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,7 +20,7 @@ public class User {
     private String username;
     private String email;
     private String password;
-
+    private LocalDateTime createdAt;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -69,4 +70,12 @@ public class User {
 
     public Player getPlayer() { return player; }
     public void setPlayer(Player player) { this.player = player; }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 }

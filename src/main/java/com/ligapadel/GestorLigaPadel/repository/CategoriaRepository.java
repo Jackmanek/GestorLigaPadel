@@ -1,7 +1,8 @@
 package com.ligapadel.GestorLigaPadel.repository;
 
-import com.padelmons.PadelMons.entities.Categoria;
-import com.padelmons.PadelMons.entities.Fase;
+
+import com.ligapadel.GestorLigaPadel.entity.Categoria;
+import com.ligapadel.GestorLigaPadel.entity.Fase;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

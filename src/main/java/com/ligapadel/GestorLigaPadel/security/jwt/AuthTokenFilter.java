@@ -1,6 +1,7 @@
 package com.ligapadel.GestorLigaPadel.security.jwt;
 
-import com.padelmons.PadelMons.security.services.UserDetailsServiceImpl;
+
+import com.ligapadel.GestorLigaPadel.security.services.UserDetailsServiceImpl;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
