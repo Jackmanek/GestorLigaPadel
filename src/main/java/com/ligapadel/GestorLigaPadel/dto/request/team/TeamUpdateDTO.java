@@ -1,14 +1,7 @@
 package com.ligapadel.GestorLigaPadel.dto.request.team;
 
-import com.ligapadel.GestorLigaPadel.dto.request.categoria.CategoriaDTO;
-import com.ligapadel.GestorLigaPadel.dto.request.player.PlayerDTO;
-
-import java.util.List;
-
-public class TeamDTO {
-    private Long id;
+public class TeamUpdateDTO {
     private String name;
-    private List<PlayerDTO> players;
     private int puntos;
     private int partidosJugados;
     private int victorias;
@@ -17,38 +10,14 @@ public class TeamDTO {
     private int noPresentado;
     private int mediaSets;
     private int mediaJuegos;
-    private CategoriaDTO categoria;
+    private Long categoriaId;
 
     // Constructor vacío
-    public TeamDTO() {}
-
-    // Constructor completo
-    public TeamDTO(Long id, String name, List<PlayerDTO> players, int puntos,
-                   int partidosJugados, int victorias, int derrotas, int noJugado,
-                   int noPresentado, int mediaSets, int mediaJuegos, CategoriaDTO categoria) {
-        this.id = id;
-        this.name = name;
-        this.players = players;
-        this.puntos = puntos;
-        this.partidosJugados = partidosJugados;
-        this.victorias = victorias;
-        this.derrotas = derrotas;
-        this.noJugado = noJugado;
-        this.noPresentado = noPresentado;
-        this.mediaSets = mediaSets;
-        this.mediaJuegos = mediaJuegos;
-        this.categoria = categoria;
-    }
+    public TeamUpdateDTO() {}
 
     // Getters y Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
-
-    public List<PlayerDTO> getPlayers() { return players; }
-    public void setPlayers(List<PlayerDTO> players) { this.players = players; }
 
     public int getPuntos() { return puntos; }
     public void setPuntos(int puntos) { this.puntos = puntos; }
@@ -74,6 +43,6 @@ public class TeamDTO {
     public int getMediaJuegos() { return mediaJuegos; }
     public void setMediaJuegos(int mediaJuegos) { this.mediaJuegos = mediaJuegos; }
 
-    public CategoriaDTO getCategoria() { return categoria; }
-    public void setCategoria(CategoriaDTO categoria) { this.categoria = categoria; }
+    public Long getCategoriaId() { return categoriaId; }
+    public void setCategoriaId(Long categoriaId) { this.categoriaId = categoriaId; }
 }

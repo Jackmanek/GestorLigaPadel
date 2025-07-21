@@ -43,6 +43,19 @@ public class Player {
         this.dataContact = dataContact;
     }
 
+    public Player(Long id, String name, String surname, int age, String gender, String imgUrl, LocalDateTime createdAt, User user, DataContact dataContact, Team team) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.gender = gender;
+        this.imgUrl = imgUrl;
+        this.createdAt = createdAt;
+        this.user = user;
+        this.dataContact = dataContact;
+        this.team = team;
+    }
+
     // Método de utilidad para obtener el email del usuario
     public String getUserEmail() {
         return user != null ? user.getEmail() : null;
@@ -80,4 +93,12 @@ public class Player {
 
     public Team getTeam() { return team; }
     public void setTeam(Team team) { this.team = team; }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 }

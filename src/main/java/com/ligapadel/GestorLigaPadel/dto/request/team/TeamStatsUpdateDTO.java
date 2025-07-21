@@ -1,14 +1,6 @@
 package com.ligapadel.GestorLigaPadel.dto.request.team;
 
-import com.ligapadel.GestorLigaPadel.dto.request.categoria.CategoriaDTO;
-import com.ligapadel.GestorLigaPadel.dto.request.player.PlayerDTO;
-
-import java.util.List;
-
-public class TeamDTO {
-    private Long id;
-    private String name;
-    private List<PlayerDTO> players;
+public class TeamStatsUpdateDTO {
     private int puntos;
     private int partidosJugados;
     private int victorias;
@@ -17,18 +9,14 @@ public class TeamDTO {
     private int noPresentado;
     private int mediaSets;
     private int mediaJuegos;
-    private CategoriaDTO categoria;
 
     // Constructor vacío
-    public TeamDTO() {}
+    public TeamStatsUpdateDTO() {}
 
     // Constructor completo
-    public TeamDTO(Long id, String name, List<PlayerDTO> players, int puntos,
-                   int partidosJugados, int victorias, int derrotas, int noJugado,
-                   int noPresentado, int mediaSets, int mediaJuegos, CategoriaDTO categoria) {
-        this.id = id;
-        this.name = name;
-        this.players = players;
+    public TeamStatsUpdateDTO(int puntos, int partidosJugados, int victorias,
+                              int derrotas, int noJugado, int noPresentado,
+                              int mediaSets, int mediaJuegos) {
         this.puntos = puntos;
         this.partidosJugados = partidosJugados;
         this.victorias = victorias;
@@ -37,19 +25,9 @@ public class TeamDTO {
         this.noPresentado = noPresentado;
         this.mediaSets = mediaSets;
         this.mediaJuegos = mediaJuegos;
-        this.categoria = categoria;
     }
 
     // Getters y Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-
-    public List<PlayerDTO> getPlayers() { return players; }
-    public void setPlayers(List<PlayerDTO> players) { this.players = players; }
-
     public int getPuntos() { return puntos; }
     public void setPuntos(int puntos) { this.puntos = puntos; }
 
@@ -73,7 +51,4 @@ public class TeamDTO {
 
     public int getMediaJuegos() { return mediaJuegos; }
     public void setMediaJuegos(int mediaJuegos) { this.mediaJuegos = mediaJuegos; }
-
-    public CategoriaDTO getCategoria() { return categoria; }
-    public void setCategoria(CategoriaDTO categoria) { this.categoria = categoria; }
 }

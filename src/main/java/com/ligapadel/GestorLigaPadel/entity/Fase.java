@@ -99,6 +99,5 @@ public class Fase {
         this.categorias = categorias;
     }
 
-    public static interface TemporadaRepository extends JpaRepository<Temporada, Long> {
-    }
+
 }
