@@ -30,6 +30,7 @@ public class PlayerMapper {
         summary.setId(player.getId());
         summary.setFullName(player.getName() + " " + player.getSurname());
         summary.setGender(player.getGender());
+        summary.setAge(player.getAge());
         summary.setTeamId(player.getTeam() != null ? player.getTeam().getId() : null);
         return summary;
     }

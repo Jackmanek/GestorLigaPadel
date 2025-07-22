@@ -4,16 +4,18 @@ public class PlayerSummaryDTO {
     private Long id;
     private String fullName;
     private String gender;
+    private int age;
     private Long teamId;
 
     public PlayerSummaryDTO() {
     }
 
-    public PlayerSummaryDTO(Long id, String fullName, String gender, Long teamId) {
+    public PlayerSummaryDTO(Long id, String fullName, String gender, Long teamId, int age) {
         this.id = id;
         this.fullName = fullName;
         this.gender = gender;
         this.teamId = teamId;
+        this.age = age;
     }
 
     public Long getId() {
@@ -46,5 +48,13 @@ public class PlayerSummaryDTO {
 
     public void setTeamId(Long teamId) {
         this.teamId = teamId;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }
