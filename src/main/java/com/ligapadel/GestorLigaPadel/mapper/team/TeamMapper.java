@@ -46,7 +46,7 @@ public class TeamMapper {
 
         // Mapear categoría
         if (team.getCategoria() != null) {
-            dto.setCategoria(categoriaMapper.toDTO(team.getCategoria()));
+            dto.setCategoria(categoriaMapper.toBasicDTO(team.getCategoria()));
         }
 
         return dto;
