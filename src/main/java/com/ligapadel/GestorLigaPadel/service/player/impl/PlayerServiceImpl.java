@@ -63,6 +63,7 @@ public class PlayerServiceImpl implements PlayerService {
         player.setAge(dto.getAge());
         player.setGender(dto.getGender());
         player.setImgUrl(dto.getImgUrl());
+        player.setDataContact(dto.getDataContact());
         player.setCreatedAt(LocalDateTime.now());
 
         if (dto.getTeamId() != null) {

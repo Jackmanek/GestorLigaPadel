@@ -24,7 +24,11 @@ public class PlayerController {
 
     @GetMapping("/summary")
     public List<PlayerSummaryDTO> getAllPlayerSummaries() {
+
+        System.out.println(playerService.getAllPlayerSummaries());
         return playerService.getAllPlayerSummaries();
+
+
     }
 
     @GetMapping("/{id}")

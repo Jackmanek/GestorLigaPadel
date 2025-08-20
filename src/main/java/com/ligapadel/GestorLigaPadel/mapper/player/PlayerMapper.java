@@ -32,6 +32,8 @@ public class PlayerMapper {
         summary.setGender(player.getGender());
         summary.setAge(player.getAge());
         summary.setTeamId(player.getTeam() != null ? player.getTeam().getId() : null);
+        summary.setTeamName(player.getTeam() != null ? player.getTeam().getName() : null);
+        summary.setDataContact(player.getDataContact());
         return summary;
     }
 }

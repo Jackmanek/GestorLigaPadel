@@ -28,7 +28,7 @@ public class Fase {
     @JsonIgnore
     private List<Team> teams;
 
-    @OneToMany(mappedBy = "fase", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "fase", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference("fase-categoria")
     private List<Categoria> categorias;
 

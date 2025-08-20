@@ -1,21 +1,27 @@
 package com.ligapadel.GestorLigaPadel.dto.request.player;
 
+import com.ligapadel.GestorLigaPadel.entity.DataContact;
+
+import javax.xml.crypto.Data;
+
 public class PlayerCreateDTO {
     private String name;
     private String surname;
     private int age;
     private String gender;
     private String imgUrl;
+    private DataContact dataContact;
     private Long teamId;
     private Long userId;
     public PlayerCreateDTO() {}
 
-    public PlayerCreateDTO(String name, String surname, int age, String gender, String imgUrl, Long teamId, Long userId) {
+    public PlayerCreateDTO(String name, String surname, int age, String gender, String imgUrl, DataContact dataContact, Long teamId, Long userId) {
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.gender = gender;
         this.imgUrl = imgUrl;
+        this.dataContact = dataContact;
         this.teamId = teamId;
         this.userId = userId;
     }
@@ -74,5 +80,13 @@ public class PlayerCreateDTO {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public DataContact getDataContact() {
+        return dataContact;
+    }
+
+    public void setDataContact(DataContact dataContact) {
+        this.dataContact = dataContact;
     }
 }

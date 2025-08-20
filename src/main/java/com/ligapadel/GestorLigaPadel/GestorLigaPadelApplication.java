@@ -98,6 +98,7 @@ public class GestorLigaPadelApplication {
 
 			User admin = new User("admin", "age002@gmail.com", encoder.encode(pass));
 			userRepository.save(admin);
+			
 
 		};
 	}
