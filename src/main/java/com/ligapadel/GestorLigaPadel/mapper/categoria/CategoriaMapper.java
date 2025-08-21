@@ -57,6 +57,7 @@ public class CategoriaMapper {
                 categoria.getId(),
                 categoria.getNombre(),
                 categoria.getOrden(),
+                categoria.getFase() != null ? categoria.getFase().getId() : null,
                 categoria.getFase() != null ? categoria.getFase().getNombre() : null,
                 categoria.getTeams() != null ? categoria.getTeams().size() : 0
         );

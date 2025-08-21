@@ -3,12 +3,16 @@ package com.ligapadel.GestorLigaPadel.mapper.team;
 import com.ligapadel.GestorLigaPadel.dto.request.team.TeamCreateDTO;
 import com.ligapadel.GestorLigaPadel.dto.request.team.TeamDTO;
 import com.ligapadel.GestorLigaPadel.dto.request.team.TeamSummaryDTO;
+import com.ligapadel.GestorLigaPadel.entity.Categoria;
+import com.ligapadel.GestorLigaPadel.entity.Player;
 import com.ligapadel.GestorLigaPadel.entity.Team;
 import com.ligapadel.GestorLigaPadel.mapper.categoria.CategoriaMapper;
 import com.ligapadel.GestorLigaPadel.mapper.player.PlayerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
@@ -68,13 +72,15 @@ public class TeamMapper {
         );
     }
 
-    public Team toEntity(TeamCreateDTO createDTO) {
+    public Team toEntity(TeamCreateDTO createDTO, Categoria categoria, List<Player> players) {
         if (createDTO == null) {
             return null;
         }
 
         Team team = new Team();
         team.setName(createDTO.getName());
+        team.setCategoria(categoria);
+        team.setPlayers(players != null ? players : new ArrayList<>());
         team.setPuntos(0);
         team.setPartidosJugados(0);
         team.setVictorias(0);

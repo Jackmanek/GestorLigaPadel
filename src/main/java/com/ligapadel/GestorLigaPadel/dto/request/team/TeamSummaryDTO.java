@@ -9,6 +9,7 @@ public class TeamSummaryDTO {
     private int derrotas;
     private String categoriaNombre;
 
+
     // Constructor vacío
     public TeamSummaryDTO() {}
 

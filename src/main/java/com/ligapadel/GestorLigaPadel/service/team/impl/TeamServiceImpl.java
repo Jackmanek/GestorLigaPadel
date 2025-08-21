@@ -5,15 +5,18 @@ import com.ligapadel.GestorLigaPadel.dto.request.team.TeamDTO;
 import com.ligapadel.GestorLigaPadel.dto.request.team.TeamSummaryDTO;
 import com.ligapadel.GestorLigaPadel.dto.request.team.TeamUpdateDTO;
 import com.ligapadel.GestorLigaPadel.entity.Categoria;
+import com.ligapadel.GestorLigaPadel.entity.Player;
 import com.ligapadel.GestorLigaPadel.entity.Team;
 import com.ligapadel.GestorLigaPadel.mapper.team.TeamMapper;
 import com.ligapadel.GestorLigaPadel.repository.CategoriaRepository;
+import com.ligapadel.GestorLigaPadel.repository.PlayerRepository;
 import com.ligapadel.GestorLigaPadel.repository.TeamRepository;
 import com.ligapadel.GestorLigaPadel.service.team.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -26,6 +29,9 @@ public class TeamServiceImpl implements TeamService {
 
     @Autowired
     private CategoriaRepository categoriaRepository;
+
+    @Autowired
+    private PlayerRepository playerRepository;
 
     @Autowired
     private TeamMapper teamMapper;
@@ -67,18 +73,72 @@ public class TeamServiceImpl implements TeamService {
     @Override
     public TeamDTO createTeam(TeamCreateDTO teamCreateDTO) {
         // Validar que no exista un equipo con el mismo nombre
-        if (existsTeamByName(teamCreateDTO.getName())) {
+        if (teamCreateDTO.getName() != null && !teamCreateDTO.getName().isBlank()
+            && existsTeamByName(teamCreateDTO.getName())) {
             throw new IllegalArgumentException("Ya existe un equipo con ese nombre");
         }
 
         // Buscar la categoría
         Categoria categoria = categoriaRepository.findById(teamCreateDTO.getCategoriaId())
                 .orElseThrow(() -> new IllegalArgumentException("Categoría no encontrada"));
+        Team team = new Team();
+        // Cargar jugadores si se pasan
+        List<Player> players = new ArrayList<>();
+        if (teamCreateDTO.getPlayerIds() != null && !teamCreateDTO.getPlayerIds().isEmpty()) {
+            players = playerRepository.findAllById(teamCreateDTO.getPlayerIds());
+            for(Player player : players){
+                player.setTeam(team);
+            }
 
+            team.setPlayers(players);
+
+        }
+
+        // Si no hay nombre -> generar uno con los apellidos de los jugadores
+        String finalName = teamCreateDTO.getName();
+        if (finalName == null || finalName.isBlank()) {
+            finalName = players.stream()
+                    .map(Player::getSurname)   // <-- asumo que tu entidad Player tiene `lastName`
+                    .collect(Collectors.joining(" - "));
+            if (finalName.isBlank()) {
+                finalName = "Equipo_Sin_Nombre";
+            }
+        }
+        /*
         // Crear el equipo
         Team team = new Team();
         team.setName(teamCreateDTO.getName());
         team.setCategoria(categoria);
+        team.setPuntos(0);
+        team.setPartidosJugados(0);
+        team.setVictorias(0);
+        team.setDerrotas(0);
+        team.setNoJugado(0);
+        team.setNoPresentado(0);
+        team.setMediaSets(0);
+        team.setMediaJuegos(0);
+        if (teamCreateDTO.getPlayerIds() != null && !teamCreateDTO.getPlayerIds().isEmpty()) {
+            List<Player> players = playerRepository.findAllById(teamCreateDTO.getPlayerIds());
+
+            for(Player player : players){
+                player.setTeam(team);
+            }
+
+            team.setPlayers(players);
+        }
+
+        Team savedTeam = teamRepository.save(team);
+
+        // Devolver DTO
+        return teamMapper.toDTO(savedTeam);
+        */
+        // Crear el equipo
+
+        team.setName(finalName);
+        team.setCategoria(categoria);
+        team.setPlayers(players);
+
+        // Inicializar estadísticas
         team.setPuntos(0);
         team.setPartidosJugados(0);
         team.setVictorias(0);

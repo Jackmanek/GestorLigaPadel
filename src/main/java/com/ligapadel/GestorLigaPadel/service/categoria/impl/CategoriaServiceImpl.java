@@ -90,11 +90,17 @@ public class CategoriaServiceImpl implements CategoriaService {
                 .collect(Collectors.toList());
     }
 
+
+
     @Override
     public CategoriaDTO createCategoria(CategoriaCreateDTO categoriaCreateDTO) {
         // Validar que no exista una categoría con el mismo nombre
-        if (existsCategoriaByNombre(categoriaCreateDTO.getNombre())) {
+        /*if (existsCategoriaByNombre(categoriaCreateDTO.getNombre())) {
             throw new IllegalArgumentException("Ya existe una categoría con ese nombre");
+        }*/
+
+        if (categoriaRepository.existsByNombreAndFaseId(categoriaCreateDTO.getNombre(), categoriaCreateDTO.getFaseId())) {
+            throw new IllegalArgumentException("Ya existe una categoría con ese nombre en esta fase");
         }
 
         // Buscar la fase

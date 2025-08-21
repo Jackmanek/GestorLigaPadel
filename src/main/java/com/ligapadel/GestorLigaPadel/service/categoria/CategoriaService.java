@@ -21,4 +21,5 @@ public interface CategoriaService {
     CategoriaDTO updateOrdenCategoria(Long id, int nuevoOrden);
     List<CategoriaBasicDTO> getCategoriaBasicByFase(Long faseId);
 
+
 }

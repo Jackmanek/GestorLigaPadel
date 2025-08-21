@@ -17,6 +17,9 @@ public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
     List<Categoria> findAllByOrderByOrdenAsc();
 
     List<Categoria> findByFaseIdOrderByOrdenAsc(Long faseId);
+    boolean existsByNombreAndFaseId(String nombre, Long faseId);
+
+    boolean existsByOrdenAndFaseId(Integer orden, Long faseId);
 
     boolean existsByNombre(String nombre);
 
