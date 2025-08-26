@@ -4,6 +4,7 @@ import com.ligapadel.GestorLigaPadel.dto.request.jornada.JornadaCreateDTO;
 import com.ligapadel.GestorLigaPadel.dto.request.jornada.JornadaDTO;
 import com.ligapadel.GestorLigaPadel.service.jornada.JornadaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,4 +34,12 @@ public class JornadaController {
     public void delete(@PathVariable Long id) {
         jornadaService.delete(id);
     }
+
+    @PostMapping("/generar/{categoriaId}")
+    public ResponseEntity<String> generarCalendario(@PathVariable Long categoriaId) {
+        jornadaService.generarCalendario(categoriaId);
+        return ResponseEntity.ok("Calendario generado para la categoría " + categoriaId);
+    }
+
+
 }

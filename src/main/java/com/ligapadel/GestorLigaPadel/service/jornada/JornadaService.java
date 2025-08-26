@@ -10,4 +10,6 @@ public interface JornadaService {
     JornadaDTO create(JornadaCreateDTO dto);
     JornadaDTO getById(Long id);
     void delete(Long id);
+
+    void generarCalendario(Long categoriaId);
 }
