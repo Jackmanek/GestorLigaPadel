@@ -15,6 +15,11 @@ public class FaseDTO {
 
     public FaseDTO() {}
 
+    public FaseDTO(Long id, String nombre){
+        this.id = id;
+        this.nombre = nombre;
+    }
+
     public FaseDTO(Long id, String nombre, int orden, TemporadaDTO temporada,
                    List<Long> jornadaIds, List<Long> teamIds, List<Long> categoriaIds) {
         this.id = id;

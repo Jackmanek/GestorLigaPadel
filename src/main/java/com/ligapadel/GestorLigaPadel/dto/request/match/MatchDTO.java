@@ -1,5 +1,7 @@
 package com.ligapadel.GestorLigaPadel.dto.request.match;
 
+import com.ligapadel.GestorLigaPadel.dto.request.team.TeamDTO;
+
 import java.time.LocalDateTime;
 
 public class MatchDTO {
@@ -20,6 +22,13 @@ public class MatchDTO {
         this.jornadaId = jornadaId;
         this.finalizado = finalizado;
         this.fecha = fecha;
+    }
+
+    public MatchDTO(Long id, Long teamDTO, Long teamDTO1, boolean finalizado) {
+        this.id =id;
+        this.localTeamId = teamDTO;
+        this.visitorTeamId = teamDTO1;
+        this.finalizado = finalizado;
     }
 
     public Long getId() {

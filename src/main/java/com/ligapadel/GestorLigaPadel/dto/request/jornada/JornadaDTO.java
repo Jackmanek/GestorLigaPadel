@@ -1,17 +1,26 @@
 package com.ligapadel.GestorLigaPadel.dto.request.jornada;
 
+import com.ligapadel.GestorLigaPadel.dto.request.fase.FaseDTO;
+import com.ligapadel.GestorLigaPadel.dto.request.match.MatchBasicDTO;
+import com.ligapadel.GestorLigaPadel.dto.request.match.MatchDTO;
+
+import java.util.List;
+
 public class JornadaDTO {
     private Long id;
     private int numJornada;
-    private Long faseId;
+    private FaseDTO fase;
+    private List<MatchBasicDTO> matches;
 
     public JornadaDTO() {
     }
 
-    public JornadaDTO(Long id, int numJornada, Long faseId) {
+    public JornadaDTO(Long id, int numJornada, FaseDTO fase, List<MatchBasicDTO> matches) {
         this.id = id;
         this.numJornada = numJornada;
-        this.faseId = faseId;
+        this.fase = fase;
+        this.matches = matches;
+
     }
 
     public Long getId() {
@@ -30,11 +39,19 @@ public class JornadaDTO {
         this.numJornada = numJornada;
     }
 
-    public Long getFaseId() {
-        return faseId;
+    public FaseDTO getFase() {
+        return fase;
     }
 
-    public void setFaseId(Long faseId) {
-        this.faseId = faseId;
+    public void setFase(FaseDTO fase) {
+        this.fase = fase;
+    }
+
+    public List<MatchBasicDTO> getMatches() {
+        return matches;
+    }
+
+    public void setMatches(List<MatchBasicDTO> matches) {
+        this.matches = matches;
     }
 }

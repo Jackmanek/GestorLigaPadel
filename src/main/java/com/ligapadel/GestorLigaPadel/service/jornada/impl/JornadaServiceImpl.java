@@ -61,6 +61,7 @@ public class JornadaServiceImpl implements JornadaService {
         Categoria categoria = categoriaRepository.findById(categoriaId)
                 .orElseThrow(() -> new RuntimeException("Categoria no encontrada"));
 
+
         List<Team> equipos = new ArrayList<>(categoria.getTeams());
         int n = equipos.size();
 

@@ -24,6 +24,11 @@ public class TeamDTO {
     // Constructor vacío
     public TeamDTO() {}
 
+    public TeamDTO(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     // Constructor completo
     public TeamDTO(Long id, String name, List<PlayerDTO> players, int puntos,
                    int partidosJugados, int victorias, int derrotas, int noJugado,
