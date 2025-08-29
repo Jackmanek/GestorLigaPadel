@@ -39,6 +39,8 @@ public class GestorLigaPadelApplication {
 			User user11 = new User("Pedro", "pedro@gmail.com", encoder.encode(pass));
 			User user12 = new User("Jon", "jon@gmail.com", encoder.encode(pass));
 			User user13 = new User("Adrian", "adrian@gmail.com", encoder.encode(pass));
+			User user14 = new User("Maria Jose", "mariajose@gmail.com", encoder.encode(pass));
+			User user15 = new User("Natalia", "natalia@gmail.com", encoder.encode(pass));
 
 
 			userRepository.save(user0);
@@ -55,6 +57,8 @@ public class GestorLigaPadelApplication {
 			userRepository.save(user11);
 			userRepository.save(user12);
 			userRepository.save(user13);
+			userRepository.save(user14);
+			userRepository.save(user15);
 
 
 
@@ -75,6 +79,8 @@ public class GestorLigaPadelApplication {
 			Player player11 = new Player(user11,"Pedro", "Caryon", 32, "Masculino", "", new DataContact("carlos@hotmail.com","123456789"));
 			Player player12 = new Player(user12,"Jon", "Baryolo", 27, "Masculino", "", new DataContact("carlos@hotmail.com","123456789"));
 			Player player13 = new Player(user13, "Adrian", "Cohello", 20, "Masculino", "", new DataContact("carlos@hotmail.com","123456789"));
+			Player player14 = new Player(user14,"Maria Jose", "Fernandez", 27, "Femenino", "", new DataContact("carlos@hotmail.com","123456789"));
+			Player player15 = new Player(user15, "Natalia", "Egaña", 20, "Femenino", "", new DataContact("carlos@hotmail.com","123456789"));
 
 			playerRepository.save(player0);
 			playerRepository.save(player1);
@@ -90,7 +96,8 @@ public class GestorLigaPadelApplication {
 			playerRepository.save(player11);
 			playerRepository.save(player12);
 			playerRepository.save(player13);
-
+			playerRepository.save(player14);
+			playerRepository.save(player15);
 
 
 
@@ -98,7 +105,7 @@ public class GestorLigaPadelApplication {
 
 			User admin = new User("admin", "age002@gmail.com", encoder.encode(pass));
 			userRepository.save(admin);
-			
+
 
 		};
 	}

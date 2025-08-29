@@ -3,6 +3,7 @@ package com.ligapadel.GestorLigaPadel.dto.request.jornada;
 import com.ligapadel.GestorLigaPadel.dto.request.fase.FaseDTO;
 import com.ligapadel.GestorLigaPadel.dto.request.match.MatchBasicDTO;
 import com.ligapadel.GestorLigaPadel.dto.request.match.MatchDTO;
+import com.ligapadel.GestorLigaPadel.entity.Fase;
 
 import java.util.List;
 

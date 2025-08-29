@@ -38,6 +38,7 @@ public class Fase {
         this.nombre = nombre;
         this.orden = orden;
     }
+
     public Fase(String nombre, int orden, Temporada temporada) {
         this.nombre = nombre;
         this.orden = orden;

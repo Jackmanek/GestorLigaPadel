@@ -1,15 +1,20 @@
 package com.ligapadel.GestorLigaPadel.dto.request.team;
 
+import com.ligapadel.GestorLigaPadel.dto.request.categoria.CategoriaBasicDTO;
+import com.ligapadel.GestorLigaPadel.entity.Categoria;
+
 public class TeamBasicDTO {
     private Long id;
     private String name;
+    private Categoria categoria;
 
     public TeamBasicDTO() {
     }
 
-    public TeamBasicDTO(Long id, String name) {
+    public TeamBasicDTO(Long id, String name, Categoria categoria) {
         this.id = id;
         this.name = name;
+        this.categoria = categoria;
     }
 
     public Long getId() {
@@ -26,5 +31,13 @@ public class TeamBasicDTO {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }

@@ -1,6 +1,7 @@
 package com.ligapadel.GestorLigaPadel.dto.request.match;
 
 import com.ligapadel.GestorLigaPadel.dto.request.team.TeamBasicDTO;
+import com.ligapadel.GestorLigaPadel.entity.Categoria;
 
 public class MatchBasicDTO {
     private Long id;
