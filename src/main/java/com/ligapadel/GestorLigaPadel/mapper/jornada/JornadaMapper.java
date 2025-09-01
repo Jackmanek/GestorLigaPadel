@@ -23,8 +23,8 @@ public class JornadaMapper {
         List<MatchBasicDTO> matchDTOList = jornada.getMatches().stream()
                 .map(m -> new MatchBasicDTO(
                         m.getId(),
-                        new TeamBasicDTO(m.getLocal().getId(), m.getLocal().getName()),
-                        new TeamBasicDTO(m.getVisitor().getId(), m.getVisitor().getName()),
+                        new TeamBasicDTO(m.getLocal().getId(), m.getLocal().getName(), m.getLocal().getCategoria() != null ? m.getLocal().getCategoria().getNombre() : null),
+                        new TeamBasicDTO(m.getVisitor().getId(), m.getVisitor().getName(), m.getVisitor().getCategoria() != null ? m.getVisitor().getCategoria().getNombre() :null),
                         m.isFinalizado()
                 ))
                 .toList();

@@ -6,12 +6,12 @@ import com.ligapadel.GestorLigaPadel.entity.Categoria;
 public class TeamBasicDTO {
     private Long id;
     private String name;
-    private Categoria categoria;
+    private String categoria;
 
     public TeamBasicDTO() {
     }
 
-    public TeamBasicDTO(Long id, String name, Categoria categoria) {
+    public TeamBasicDTO(Long id, String name, String categoria) {
         this.id = id;
         this.name = name;
         this.categoria = categoria;
@@ -38,11 +38,11 @@ public class TeamBasicDTO {
         this.name = name;
     }
 
-    public Categoria getCategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(Categoria categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 }
