@@ -44,6 +44,7 @@ public class JornadaServiceImpl implements JornadaService {
         Jornada j = new Jornada();
         j.setNumJornada(dto.getNumJornada());
         j.setFase(faseRepository.findById(dto.getFaseId()).orElse(null));
+        j.setCategoria(categoriaRepository.findById(dto.getCategoriaId()).orElse(null));
         return jornadaMapper.toDTO(jornadaRepository.save(j));
     }
 

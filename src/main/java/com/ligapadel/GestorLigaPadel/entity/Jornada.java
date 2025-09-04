@@ -17,6 +17,10 @@ public class Jornada {
     @JsonBackReference("fase-jornada")
     private Fase fase;
 
+    @ManyToOne
+    private Categoria categoria;
+
+
     @OneToMany(mappedBy = "jornada")
     @JsonManagedReference("jornada-match")
     private List<Match> matches;
@@ -47,6 +51,14 @@ public class Jornada {
 
     public void setFase(Fase fase) {
         this.fase = fase;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
     public List<Match> getMatches() {
