@@ -6,6 +6,7 @@ import com.ligapadel.GestorLigaPadel.dto.request.temporada.TemporadaSummaryDTO;
 import com.ligapadel.GestorLigaPadel.dto.request.temporada.TemporadaUpdateDTO;
 import com.ligapadel.GestorLigaPadel.service.temporada.TemporadaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
