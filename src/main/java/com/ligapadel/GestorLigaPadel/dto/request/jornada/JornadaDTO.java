@@ -1,5 +1,6 @@
 package com.ligapadel.GestorLigaPadel.dto.request.jornada;
 
+import com.ligapadel.GestorLigaPadel.dto.request.categoria.CategoriaDTO;
 import com.ligapadel.GestorLigaPadel.dto.request.fase.FaseDTO;
 import com.ligapadel.GestorLigaPadel.dto.request.match.MatchBasicDTO;
 import com.ligapadel.GestorLigaPadel.dto.request.match.MatchDTO;
@@ -11,6 +12,7 @@ public class JornadaDTO {
     private Long id;
     private int numJornada;
     private FaseDTO fase;
+    private CategoriaDTO categoria;
     private List<MatchBasicDTO> matches;
 
     public JornadaDTO() {
@@ -54,5 +56,13 @@ public class JornadaDTO {
 
     public void setMatches(List<MatchBasicDTO> matches) {
         this.matches = matches;
+    }
+
+    public CategoriaDTO getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(CategoriaDTO categoria) {
+        this.categoria = categoria;
     }
 }
