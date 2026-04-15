@@ -6,6 +6,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -99,6 +100,7 @@ public class CategoriaController {
 
     // POST /api/categorias - Crear nueva categoría
     @PostMapping
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<CategoriaDTO> createCategoria(@Valid @RequestBody CategoriaCreateDTO categoriaCreateDTO) {
         try {
             CategoriaDTO createdCategoria = categoriaService.createCategoria(categoriaCreateDTO);
@@ -112,6 +114,7 @@ public class CategoriaController {
 
     // PUT /api/categorias/{id} - Actualizar categoría completa
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<CategoriaDTO> updateCategoria(@PathVariable Long id,
                                                         @Valid @RequestBody CategoriaUpdateDTO categoriaUpdateDTO) {
         try {
@@ -140,6 +143,7 @@ public class CategoriaController {
 
     // DELETE /api/categorias/{id} - Eliminar categoría
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<Void> deleteCategoria(@PathVariable Long id) {
         try {
             categoriaService.deleteCategoria(id);
@@ -176,6 +180,7 @@ public class CategoriaController {
 
     // POST /api/categorias/batch - Crear múltiples categorías
     @PostMapping("/batch")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<List<CategoriaDTO>> createCategorias(@Valid @RequestBody List<CategoriaCreateDTO> categoriasCreateDTO) {
         try {
             List<CategoriaDTO> createdCategorias = categoriasCreateDTO.stream()

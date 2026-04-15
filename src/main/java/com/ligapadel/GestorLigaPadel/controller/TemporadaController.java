@@ -35,16 +35,19 @@ public class TemporadaController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public TemporadaDTO createTemporada(@RequestBody TemporadaCreateDTO dto) {
         return temporadaService.createTemporada(dto);
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public TemporadaDTO updateTemporada(@PathVariable Long id, @RequestBody TemporadaUpdateDTO dto) {
         return temporadaService.updateTemporada(id, dto);
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void deleteTemporada(@PathVariable Long id) {
         temporadaService.deleteTemporada(id);
     }

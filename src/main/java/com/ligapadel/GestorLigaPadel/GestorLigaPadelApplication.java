@@ -99,11 +99,21 @@ public class GestorLigaPadelApplication {
 			playerRepository.save(player14);
 			playerRepository.save(player15);
 
+			Role r = new Role(ERole.ROLE_USER);
+			Role r1 = new Role(ERole.ROLE_MODERATOR);
+			Role r2 = new Role(ERole.ROLE_ADMIN);
+
+			roleRepository.save(r);
+			roleRepository.save(r1);
+			roleRepository.save(r2);
+
+			Set<Role> roles = new HashSet<>();
+			roles.add(r);
+			roles.add(r1);
+			roles.add(r2);
 
 
-
-
-			User admin = new User("admin", "age002@gmail.com", encoder.encode(pass));
+			User admin = new User("admin", "age002@gmail.com", encoder.encode(pass), roles);
 			userRepository.save(admin);
 
 

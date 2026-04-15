@@ -6,6 +6,7 @@ import com.ligapadel.GestorLigaPadel.dto.request.fase.FaseSummaryDTO;
 import com.ligapadel.GestorLigaPadel.dto.request.fase.FaseUpdateDTO;
 import com.ligapadel.GestorLigaPadel.service.fase.FaseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,16 +35,19 @@ public class FaseController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public FaseDTO createFase(@RequestBody FaseCreateDTO dto) {
         return faseService.createFase(dto);
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public FaseDTO updateFase(@PathVariable Long id, @RequestBody FaseUpdateDTO dto) {
         return faseService.updateFase(id, dto);
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void deleteFase(@PathVariable Long id) {
         faseService.deleteFase(id);
     }

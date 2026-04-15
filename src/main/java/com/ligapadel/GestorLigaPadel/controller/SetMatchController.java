@@ -4,6 +4,7 @@ import com.ligapadel.GestorLigaPadel.dto.request.setmatch.SetMatchCreateDTO;
 import com.ligapadel.GestorLigaPadel.dto.request.setmatch.SetMatchDTO;
 import com.ligapadel.GestorLigaPadel.service.setmatch.SetMatchService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,10 +26,12 @@ public class SetMatchController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public SetMatchDTO create(@RequestBody SetMatchCreateDTO dto) {
         return setMatchService.create(dto);
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void delete(@PathVariable Long id) { setMatchService.delete(id); }
 }
